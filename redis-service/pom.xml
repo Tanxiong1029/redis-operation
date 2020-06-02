@@ -16,9 +16,17 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <redis.core.version>0.0.1-SNAPSHOT</redis.core.version>
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>com.redis</groupId>
+            <artifactId>redis-core</artifactId>
+            <version>${redis.core.version}</version>
+        </dependency>
+
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
