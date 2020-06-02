@@ -10,6 +10,7 @@
     <description>Redis</description>
     <packaging>pom</packaging>
 
+
     <modules>
         <module>redis-core</module>
         <module>redis-service</module>
