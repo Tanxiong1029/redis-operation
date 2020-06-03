@@ -1,0 +1,14 @@
+server:
+  port: 9010
+
+
+spring:
+  redis:
+    host: 62.234.153.162
+    port: 6385
+    jedis:
+      pool:
+        max-wait: 1000 #连接池最大阻塞时间（使用负值表示没有限制）
+        max-idle: 200  #连接池中的最大空闲连接
+        max-active: 1024 #连接池最大连接数（使用负值表示没有限制）
+    database: 0

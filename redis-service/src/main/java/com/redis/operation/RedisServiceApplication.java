@@ -1,4 +1,4 @@
-package com.redis.operation.service;
+package com.redis.operation;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
