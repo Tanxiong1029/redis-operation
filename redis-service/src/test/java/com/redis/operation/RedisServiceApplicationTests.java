@@ -14,7 +14,7 @@ class RedisServiceApplicationTests {
 
     @Test
     void contextLoads() {
-        stringTypeManager.save("test","test",true);
+        stringTypeManager.save("test","test");
 
     }
 

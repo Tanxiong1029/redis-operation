@@ -18,13 +18,13 @@ public class ListTypeManagerImpl extends ServiceRedis implements ListTypeManager
     private final static Logger logger = LoggerFactory.getLogger(ListTypeManagerImpl.class);
 
     @Override
-    public void save(String key, String value, boolean flag) {
+    public void save(String key, Object obj, boolean flag) {
         //flag=true 左进右出
         if (flag) {
-            redisTemplate.opsForList().leftPush(key, value);
+            redisTemplate.opsForList().leftPush(key, obj);
         } else {
             //flag=true 右进左出
-            redisTemplate.opsForList().rightPush(key, value);
+            redisTemplate.opsForList().rightPush(key, obj);
         }
 
     }

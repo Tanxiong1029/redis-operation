@@ -14,7 +14,7 @@ import java.util.Map;
 
 /**
  * @Author：tanxiong
- * @Description： String类型操作
+ * @Description： String
  * @Date： 2020/6/3
  */
 
@@ -23,12 +23,15 @@ public class StringTypeManagerImpl extends ServiceRedis implements StringTypeMan
 
     private static final Logger logger = LoggerFactory.getLogger(StringTypeManagerImpl.class);
 
+
     @Override
-    public void save(String key, String value,boolean flag) {
+    public void save(String key, Object obj) {
         if (StringUtils.isNotBlank(key)) {
-            redisTemplate.opsForValue().set(key, value);
+            redisTemplate.opsForValue().set(key, obj);
         }
     }
+
+
 
     @Override
     public boolean expira(String key,long time) {
@@ -36,7 +39,7 @@ public class StringTypeManagerImpl extends ServiceRedis implements StringTypeMan
     }
 
     @Override
-    public Object get(String key,boolean flag) {
+    public Object get(String key) {
         return redisTemplate.opsForValue().get(key);
     }
 

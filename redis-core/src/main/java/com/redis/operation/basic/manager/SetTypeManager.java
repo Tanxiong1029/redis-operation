@@ -6,4 +6,7 @@ package com.redis.operation.basic.manager;
  * @Date： 2020/6/4
  */
 public interface SetTypeManager extends TypeManager {
+    void save(String key, Object obj);
+
+    Object get(String key);
 }

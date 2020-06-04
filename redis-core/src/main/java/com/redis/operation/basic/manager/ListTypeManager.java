@@ -7,6 +7,24 @@ package com.redis.operation.basic.manager;
  */
 public interface ListTypeManager extends TypeManager{
 
+    /**
+     * 向redis写入
+     * @param key
+     * @param obj
+     * @param flag
+     */
+    void save(String key,Object obj,boolean flag);
+
+
+    /**
+     * 从redis中取出单个key的值
+     * @param key
+     * @param flag
+     * @return
+     */
+    Object get(String key,boolean flag);
+
+
     Object lrang(String key,long startIndex,long endIndex);
 
     Long llen(String key);

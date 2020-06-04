@@ -10,6 +10,9 @@ import java.util.Map;
  */
 public interface StringTypeManager extends TypeManager {
 
+    void save(String key, Object obj);
+
+    Object get(String key);
 
     /**
      * 批量写入redis

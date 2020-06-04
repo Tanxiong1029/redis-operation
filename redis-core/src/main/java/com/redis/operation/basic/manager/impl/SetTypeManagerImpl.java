@@ -19,9 +19,11 @@ public class SetTypeManagerImpl extends ServiceRedis implements SetTypeManager {
     private final static Logger logger = LoggerFactory.getLogger(SetTypeManagerImpl.class);
 
     @Override
-    public void save(String key, String value, boolean flag) {
-        redisTemplate.opsForSet().add(key,value);
+    public void save(String key, Object obj) {
+        redisTemplate.opsForSet().add(key,obj);
     }
+
+
 
     @Override
     public boolean expira(String key, long time) {
@@ -35,7 +37,7 @@ public class SetTypeManagerImpl extends ServiceRedis implements SetTypeManager {
     }
 
     @Override
-    public Object get(String key, boolean flag) {
+    public Object get(String key) {
         return  redisTemplate.opsForSet().members(key);
     }
 

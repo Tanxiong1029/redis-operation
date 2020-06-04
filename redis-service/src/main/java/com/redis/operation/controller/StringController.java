@@ -22,9 +22,9 @@ public class StringController {
     public void stringTest() {
         System.out.println("========================");
         String key="test";
-        stringTypeManager.save(key, "test",true);
+        stringTypeManager.save(key, "test");
         stringTypeManager.expira(key,1000);
-        System.out.println(stringTypeManager.get(key,true));
+        System.out.println(stringTypeManager.get(key));
         stringTypeManager.del(key);
         System.out.println("+++++++++++++++++++++++++++");
         Map<String,Object> map=new HashMap<>();
