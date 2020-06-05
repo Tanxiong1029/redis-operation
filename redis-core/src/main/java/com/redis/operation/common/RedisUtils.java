@@ -3,9 +3,14 @@ package com.redis.operation.common;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.script.DefaultRedisScript;
+import org.springframework.scripting.support.ResourceScriptSource;
 import org.springframework.util.CollectionUtils;
 
+import java.io.IOException;
+import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -83,6 +88,16 @@ public class RedisUtils {
         } catch (Exception e) {
           logger.error("delete redis key error:===>{}",e);
         }
+    }
+
+    public static Boolean lock(RedisTemplate<String, Object> redisTemplate, String key, String value, String luaPath) throws IOException {
+        DefaultRedisScript<Boolean> lockScript = new DefaultRedisScript<>();
+        ClassPathResource resource = new ClassPathResource(luaPath);
+        ResourceScriptSource source = new ResourceScriptSource(resource);
+        lockScript.setScriptSource(source);
+        lockScript.setResultType(Boolean.class);
+        Boolean result = (Boolean) redisTemplate.execute(lockScript, Arrays.asList(key, value));
+        return result;
     }
 
 }
